@@ -1,0 +1,167 @@
+/* styles.css */
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #d9b573; /* Yläpalkin taustaväri */
+    color: #4a4a4a; /* Fontin väri */
+    padding: 20px 0; /* Lisää yläpalkin korkeutta */
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Keskittää logon ja hampurilaisvalikon */
+    justify-content: space-between; /* Järjestää elementit reunojen väliin */
+}
+
+.logo {
+    height: 60px; /* Säädä tarvittaessa, jotta se sopii yläpalkkiin */
+    margin-left: 10px; /* Lisää tilaa vasemmalle */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0; /* Poistaa ul:n padding */
+    margin: 0; /* Poistaa ul:n marginaalit */
+    display: flex; /* Flexbox navigaatiolle */
+    align-items: center; /* Keskittää linkit pystysuunnassa */
+    justify-content: center; /* Keskittää linkit vaakasuunnassa */
+    flex-grow: 1; /* Sallii ul:n kasvaa tarvittaessa */
+}
+
+nav ul li {
+    margin-right: 50px; /* Lisää väliä navigaatioelementtien väliin */
+}
+
+nav a {
+    color: #4a4a4a; /* Linkkien väri */
+    text-decoration: none;
+    font-size: 18px; /* Fonttikoko */
+}
+
+nav a:hover {
+    color: #849974; /* Hover-väri */
+}
+
+/* Hampurilaisvalikon tyylit */
+.menu-toggle {
+    display: none; /* Piilotetaan alkuperäinen valinta */
+}
+
+.hamburger {
+    display: none; /* Piilotetaan aluksi */
+    flex-direction: column; /* Aseta viivat pystysuoraan */
+    cursor: pointer; /* Muuta osoitin sormeksi */
+    margin-right: 20px; /* Lisää tilaa oikealle */
+}
+
+.hamburger .line {
+    height: 3px; /* Viivan korkeus */
+    width: 25px; /* Viivan leveys */
+    background-color: #4a4a4a; /* Viivan väri */
+    margin: 3px 0; /* Lisää tilaa viivojen väliin */
+}
+
+/* Muokkaa navigointia mobiilissa */
+@media (max-width: 768px) 
+    {
+        .two-columns {
+            flex-direction: column; /* Muuttaa asettelun yksipalmuiseksi */
+        }
+    nav ul {
+        display: none; /* Piilota linkit aluksi */
+        flex-direction: column; /* Aseta linkit pystysuoraan */
+        width: 100%; /* Leveys koko näytön leveys */
+        background-color: #f5f1e9; /* Taustaväri */
+        position: absolute; /* Aseta absoluuttiseksi */
+        top: 60px; /* Aseta ylös alareunasta */
+        left: 0; /* Aseta vasemmalle */
+        z-index: 2; /* Varmistaa, että se näkyy muiden päällä */
+    }
+    nav ul li:hover .dropdown {
+        display: none; /* Varmistaa, että dropdown ei näy mobiilissa, kun se on piilotettu */
+    }
+
+    nav ul li:focus-within .dropdown {
+        display: block; /* Näyttää dropdownin, kun li-elementti on aktiivinen */
+    }
+
+    img {margin:auto;
+        
+       
+    }
+    .logo {
+        max-width: calc(100% - 50px); /* Varmistaa, että logo ei ylitä hampurilaisvalikon leveyttä */
+        height: auto; /* Säilyttää kuvan korkeus-leveys-suhteen */
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        display: flex; /* Näytä linkit, kun valinta on aktivoitu */
+    }
+
+    .hamburger {
+        display: flex; /* Näytä hampurilaiskuvake mobiilissa */
+    }
+
+    .nav-links {
+        margin: 0; /* Poistaa ul:n marginaalit */
+    }
+
+    nav {
+        padding: 10px; /* Pienennä yläpalkin korkeutta mobiilissa */
+    }
+    
+}
+
+main {
+    padding: 20px; /* Lisää tilaa pääsisältöön */
+}
+
+.two-columns {
+    display: flex; /* Kaksipalstainen asettelu */
+    justify-content: space-between; /* Järjestä sarakkeet tilan mukaan */
+    flex-wrap: wrap; /* Mahdollistaa rivien murtumisen, jos tila loppuu */
+}
+
+.column {
+    flex: 1; /* Aseta sarakkeet samalle leveydelle */
+    margin-right: 20px; /* Lisää väliä sarakkeiden väliin */
+}
+
+.column:last-child {
+    margin-right: 0; /* Poistaa oikean marginaalin viimeiseltä sarakkeelta */
+}
+
+img {
+    max-width: 100%; /* Varmista, että kuva ei ylitä säiliön leveyttä */
+    height: auto; /* Säilytä kuvan korkeus-leveys-suhde */
+}
+
+footer {
+    background: #42614a; /* Alareunan taustaväri */
+    color: white; /* Fontin väri alareunassa */
+    text-align: center; /* Keskitetty teksti */
+    padding: 10px 0; /* Alareunan padding */
+}
+
+/* Dropdown tyylit */
+nav .dropdown {
+    display: none; /* Piilota dropdown aluksi */
+    position: absolute; /* Aseta sijainti suhteessa pääelementtiin */
+    background-color: #f5f1e9; /* Dropdownin taustaväri */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Varjo dropdownille */
+    z-index: 1; /* Varmistaa, että dropdown näkyy muiden päällä */
+    padding: 10px 0; /* Lisää paddingia dropdownin ympärille */
+}
+
+nav ul li:hover .dropdown {
+    display: block; /* Näyttää dropdownin, kun hiiri on pääelementin päällä */
+}
+
+nav .dropdown li {
+    margin: 0; /* Poistaa marginaalit dropdownin elementeiltä */
+}
